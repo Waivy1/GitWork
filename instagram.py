@@ -26,7 +26,7 @@ followers_button.click()
 
 sleep(5)
 
-for i in range(10)(int(number_of_followers)):
+for i in range(int(number_of_followers)):
     follower = wd.find_element_by_xpath(f'/html/body/div[3]/div/div/div[2]/ul/div/li[{i+1}]')
     wd.execute_script('arguments[0].scrollIntoView()', follower)
     sleep(1)
