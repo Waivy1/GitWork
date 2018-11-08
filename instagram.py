@@ -28,7 +28,7 @@ sleep(5)
 
 list_of_followers = []
 
-for i in range(4):    #(int(number_of_followers)): # [0, 1, .. 197]
+for i in range(1):    #(int(number_of_followers)): # [0, 1, .. 197]
     follower = wd.find_element_by_xpath(f'/html/body/div[3]/div/div/div[2]/ul/div/li[{i+1}]')
     wd.execute_script('arguments[0].scrollIntoView()', follower)
     one_name_follower = follower.find_element_by_xpath('div[1]/div[2]/div[1]')
@@ -40,3 +40,27 @@ for i in range(4):    #(int(number_of_followers)): # [0, 1, .. 197]
 
 print(list_of_followers)
 print()
+
+exit_button = wd.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/div[2]/button/span')
+exit_button.click()
+
+following_button = wd.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[3]/a')
+number_of_following = following_button.text.split(' ')[0]
+following_button.click()
+sleep(5)
+
+list_of_following = []
+
+for i in range(5):  #(int(number_of_following)):
+    following = wd.find_element_by_xpath(f'/html/body/div[3]/div/div/div[2]/ul/div/li[{i+1}]')
+    #/html/body/div[3]/div/div/div[2]/ul/div/li[1]/div
+
+    wd.execute_script('arguments[0].scrollIntoView()', following)
+    one_name_following = following.find_element_by_xpath('div[1]/div[2]/div[1]')
+    print(one_name_following.text)
+
+    list_of_following.append(one_name_following.text)
+
+    sleep(2)
+
+print(list_of_following)
