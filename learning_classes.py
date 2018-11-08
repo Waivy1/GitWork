@@ -7,5 +7,27 @@ class Tail:
         self.size = size
         self.color = color
 
+    def burn(self):
+        pass
+
+    def wear(self):
+        pass
+
+
 wolf = Tail('big', 'grey')
 print(wolf.color)
+
+class Cat (Tail):
+
+    def lie(self, size):
+        self.size = size
+
+
+hlib = Cat('12', 'grey')
+hlib.lie('10')
+print(hlib.size)
+
+
+
+
+
