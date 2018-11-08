@@ -26,17 +26,20 @@ followers_button.click()
 
 sleep(5)
 
-for i in range(int(number_of_followers)):
+for i in range(int(number_of_followers)): # [0, 1, .. 197]
     follower = wd.find_element_by_xpath(f'/html/body/div[3]/div/div/div[2]/ul/div/li[{i+1}]')
     wd.execute_script('arguments[0].scrollIntoView()', follower)
     sleep(1)
     print(follower.text)
+    follower_name = follower.text
 
-print()
+print(follower_name)
+
 list = []
 list.append(follower)
 
-print('')
+
+
 
 # user_name = wd.find_element_by_name('username')
 # user_name.send_keys('viktoriaa_88')
