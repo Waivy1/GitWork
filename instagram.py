@@ -26,30 +26,17 @@ followers_button.click()
 
 sleep(5)
 
-for i in range(int(number_of_followers)): # [0, 1, .. 197]
+list_of_followers = []
+
+for i in range(4):    #(int(number_of_followers)): # [0, 1, .. 197]
     follower = wd.find_element_by_xpath(f'/html/body/div[3]/div/div/div[2]/ul/div/li[{i+1}]')
     wd.execute_script('arguments[0].scrollIntoView()', follower)
-    sleep(1)
-    print(follower.text)
-    follower_name = follower.text
+    one_name_follower = follower.find_element_by_xpath('div[1]/div[2]/div[1]')
+    print(one_name_follower.text)
 
-print(follower_name)
+    list_of_followers.append(one_name_follower.text)
 
-list = []
-list.append(follower)
+    sleep(2)
 
-
-
-
-# user_name = wd.find_element_by_name('username')
-# user_name.send_keys('viktoriaa_88')
-
-# wd.find_element_by_name('password').send_keys('nuvigu600505880')
-#
-# login_button = wd.find_element_by_xpath('//*[@id="react-root"]/section/main/div/article/div/div[1]/div/form/div[3]/button')
-# login_button.click()
-#
-# notification_button = wd.find_element_by_xpath('/html/body/div[2]')
-# notification_button.click()
-# print('')
-#
+print(list_of_followers)
+print()
